@@ -241,7 +241,7 @@ export default function LandingPage() {
               }`}
             >
               <img
-                src="public/static/images/hero-removebg-preview.png"
+                src="/static/images/hero-removebg-preview.png"
                 alt="Hero Image"
                 className="w-full max-w-sm sm:max-w-md lg:max-w-lg object-contain"
               />
@@ -318,7 +318,7 @@ export default function LandingPage() {
                   <TooltipTrigger asChild>
                     <div className="cursor-pointer hover:scale-110 transition-transform">
                       <img
-                        src={`/public/static/images/${tool.icon}`}
+                        src={`/static/images/${tool.icon}`}
                         alt={tool.name}
                         className="w-16 h-16 object-contain"
                       />
@@ -340,7 +340,7 @@ export default function LandingPage() {
           <div className="grid lg:grid-cols-2 gap-12  items-center">
             <div className="flex justify-center order-2 lg:order-1">
               <img
-                src="public/static/images/section-services.png"
+                src="/static/images/section-services.png"
                 alt="services_image"
               />
             </div>
@@ -367,7 +367,7 @@ export default function LandingPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="mx-auto order-2 lg:order-1">
-              <img src="public/static/images/section-whyus.png" alt="why_us" />
+              <img src="/static/images/section-whyus.png" alt="why_us" />
             </div>
             <div className="mx-auto">
               <h2 className="text-3xl font-bold text-gray-900 mb-8">Why Us?</h2>
@@ -425,7 +425,7 @@ export default function LandingPage() {
           </h2>
           <div className="flex justify-center">
             <img
-              src="public/static/images/workflow-service.png"
+              src="/static/images/workflow-service.png"
               alt="workflow services"
             />
           </div>
