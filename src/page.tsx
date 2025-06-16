@@ -20,6 +20,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { motion } from "framer-motion";
 
 export default function LandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -150,7 +151,7 @@ export default function LandingPage() {
 
             <div className="flex items-center space-x-4">
               <Button className="hidden md:block bg-green-600 hover:bg-green-700 text-white">
-                Contact Now
+                Hubungi sekarang
               </Button>
 
               {/* Mobile menu button */}
@@ -207,15 +208,23 @@ export default function LandingPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="py-8 md:py-12 lg:py-20 bg-gray-50">
+      <motion.section
+        className="py-8 md:py-12 lg:py-20 bg-gray-50"
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div
+            <motion.div
               className={`transform transition-all duration-1000 text-left ${
                 isVisible
                   ? "translate-x-0 opacity-100"
                   : "-translate-x-10 opacity-0"
               }`}
+              initial={{ opacity: 0, x: -40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
             >
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 lg:mb-6">
                 Ubah Data Menjadi Keputusan Cerdas -
@@ -228,27 +237,30 @@ export default function LandingPage() {
                 scientist berpengalaman untuk mengoptimalkan bisnis Anda.
               </p>
               <Button className="bg-green-600 hover:bg-green-700 text-white px-6 sm:px-8 py-2 sm:py-3 text-base sm:text-lg group">
-                Start Sekarang
+                Mulai Sekarang
                 <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-            </div>
+            </motion.div>
 
-            <div
+            <motion.div
               className={`transform transition-all duration-1000 delay-300 flex justify-center lg:justify-end ${
                 isVisible
                   ? "translate-x-0 opacity-100"
                   : "translate-x-10 opacity-0"
               }`}
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
             >
               <img
                 src="/static/images/hero-removebg-preview.png"
                 alt="Hero Image"
                 className="w-full max-w-sm sm:max-w-md lg:max-w-lg object-contain"
               />
-            </div>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* About Us Section */}
       <section className="py-16 bg-green-600">
@@ -264,7 +276,13 @@ export default function LandingPage() {
       </section>
 
       {/* Our Client Section */}
-      <section className="py-16 bg-white">
+      <motion.section
+        className="py-16 bg-white"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.8 }}
+      >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
             Our Client
@@ -290,62 +308,101 @@ export default function LandingPage() {
                   "Individu yang memerlukan layanan analisis data untuk keperluan pribadi",
               },
             ].map((client, index) => (
-              <Card
+              <motion.div
                 key={index}
-                className="text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-2"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.7, delay: index * 0.15 }}
               >
-                <CardContent className="p-8">
-                  <client.icon className="w-16 h-16 mx-auto mb-4 text-green-600" />
-                  <h3 className="text-xl font-semibold mb-4">{client.title}</h3>
-                  <p className="text-gray-600">{client.description}</p>
-                </CardContent>
-              </Card>
+                <Card className="text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
+                  <CardContent className="p-8">
+                    <client.icon className="w-16 h-16 mx-auto mb-4 text-green-600" />
+                    <h3 className="text-xl font-semibold mb-4">
+                      {client.title}
+                    </h3>
+                    <p className="text-gray-600">{client.description}</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Our Tools Section */}
-      <section className="py-16 bg-gray-50">
+      <motion.section
+        className="py-16 bg-gray-50"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.8 }}
+      >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900">OUR TOOLS</h2>
           </div>
           <div className="flex flex-wrap justify-center items-center gap-8">
             <TooltipProvider>
-              {iconTools.map((tool) => (
-                <Tooltip key={tool.name}>
-                  <TooltipTrigger asChild>
-                    <div className="cursor-pointer hover:scale-110 transition-transform">
-                      <img
-                        src={`/static/images/${tool.icon}`}
-                        alt={tool.name}
-                        className="w-16 h-16 object-contain"
-                      />
-                    </div>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>{tool.name}</p>
-                  </TooltipContent>
-                </Tooltip>
+              {iconTools.map((tool, i) => (
+                <motion.div
+                  key={tool.name}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                >
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <div className="cursor-pointer hover:scale-110 transition-transform">
+                        <img
+                          src={`/static/images/${tool.icon}`}
+                          alt={tool.name}
+                          className="w-16 h-16 object-contain"
+                        />
+                      </div>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>{tool.name}</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </motion.div>
               ))}
             </TooltipProvider>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Services Offered Section */}
-      <section className="py-16 bg-white">
+      <motion.section
+        className="py-16 bg-white"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.8 }}
+      >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12  items-center">
-            <div className="flex justify-center order-2 lg:order-1">
+            <motion.div
+              className="flex justify-center order-2 lg:order-1"
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.7 }}
+            >
               <img
                 src="/static/images/section-services.png"
                 alt="services_image"
               />
-            </div>
+            </motion.div>
 
-            <div className="order-1 lg:order-2">
+            <motion.div
+              className="order-1 lg:order-2"
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.7 }}
+            >
               <h2 className="text-3xl font-bold text-gray-900 mb-8">
                 Services Offered
               </h2>
@@ -357,19 +414,37 @@ export default function LandingPage() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Why Us Section */}
-      <section className="py-16 bg-gray-50">
+      <motion.section
+        className="py-16 bg-gray-50"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.8 }}
+      >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="mx-auto order-2 lg:order-1">
+            <motion.div
+              className="mx-auto order-2 lg:order-1"
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.7 }}
+            >
               <img src="/static/images/section-whyus.png" alt="why_us" />
-            </div>
-            <div className="mx-auto">
+            </motion.div>
+            <motion.div
+              className="mx-auto"
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.7 }}
+            >
               <h2 className="text-3xl font-bold text-gray-900 mb-8">Why Us?</h2>
               <ul className="space-y-4">
                 {whyUsPoints.map((point, index) => (
@@ -379,13 +454,19 @@ export default function LandingPage() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Portfolio Section */}
-      <section className="py-16 bg-white">
+      <motion.section
+        className="py-16 bg-white"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.8 }}
+      >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
             Portfolio
@@ -396,27 +477,40 @@ export default function LandingPage() {
               "Using Tableau For Visualization",
               "Using Google Colab For Cleaning Data",
             ].map((project, index) => (
-              <Card
+              <motion.div
                 key={index}
-                className="overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-2"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.7, delay: index * 0.15 }}
               >
-                <div className="h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
-                  <BarChart3 className="w-16 h-16 text-gray-400" />
-                </div>
-                <CardContent className="p-6">
-                  <div className="text-center">
-                    <div className="text-sm text-green-600 mb-2">Order Now</div>
-                    <h3 className="font-semibold text-gray-900">{project}</h3>
+                <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
+                  <div className="h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center">
+                    <BarChart3 className="w-16 h-16 text-gray-400" />
                   </div>
-                </CardContent>
-              </Card>
+                  <CardContent className="p-6">
+                    <div className="text-center">
+                      <div className="text-sm text-green-600 mb-2">
+                        Order Now
+                      </div>
+                      <h3 className="font-semibold text-gray-900">{project}</h3>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Workflow Section */}
-      <section className="py-16 bg-green-50">
+      <motion.section
+        className="py-16 bg-green-50"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.8 }}
+      >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-10">
             <span className="text-green-600">WORKFLOW</span>
@@ -430,58 +524,72 @@ export default function LandingPage() {
             />
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-16 bg-white">
+      <motion.section
+        id="pricing"
+        className="py-16 bg-white"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.8 }}
+      >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
             Price
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             {pricingPlans.map((plan, index) => (
-              <Card
+              <motion.div
                 key={index}
-                className={`relative overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 ${
-                  plan.popular ? "ring-2 ring-green-600" : ""
-                }`}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.7, delay: index * 0.15 }}
               >
-                {plan.popular && (
-                  <div className="absolute top-0 left-0 right-0 bg-green-600 text-white text-center py-2 text-sm font-semibold">
-                    Most Popular
-                  </div>
-                )}
-                <CardContent
-                  className={`p-8 text-center ${plan.popular ? "pt-12" : ""}`}
+                <Card
+                  className={`relative overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 ${
+                    plan.popular ? "ring-2 ring-green-600" : ""
+                  }`}
                 >
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                    {plan.name}
-                  </h3>
-                  <div className="text-4xl font-bold text-gray-900 mb-6">
-                    {plan.price}
-                  </div>
-                  <ul className="space-y-3 mb-8">
-                    {plan.features.map((feature, featureIndex) => (
-                      <li
-                        key={featureIndex}
-                        className="flex items-center space-x-3"
-                      >
-                        <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
-                        <span className="text-gray-700">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Button
-                    className={`w-full ${
-                      plan.popular
-                        ? "bg-green-600 hover:bg-green-700"
-                        : "bg-gray-900 hover:bg-gray-800"
-                    } text-white`}
+                  {plan.popular && (
+                    <div className="absolute top-0 left-0 right-0 bg-green-600 text-white text-center py-2 text-sm font-semibold">
+                      Most Popular
+                    </div>
+                  )}
+                  <CardContent
+                    className={`p-8 text-center ${plan.popular ? "pt-12" : ""}`}
                   >
-                    Choose Plan
-                  </Button>
-                </CardContent>
-              </Card>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                      {plan.name}
+                    </h3>
+                    <div className="text-4xl font-bold text-gray-900 mb-6">
+                      {plan.price}
+                    </div>
+                    <ul className="space-y-3 mb-8">
+                      {plan.features.map((feature, featureIndex) => (
+                        <li
+                          key={featureIndex}
+                          className="flex items-center space-x-3"
+                        >
+                          <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                          <span className="text-gray-700">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <Button
+                      className={`w-full ${
+                        plan.popular
+                          ? "bg-green-600 hover:bg-green-700"
+                          : "bg-gray-900 hover:bg-gray-800"
+                      } text-white`}
+                    >
+                      Choose Plan
+                    </Button>
+                  </CardContent>
+                </Card>
+              </motion.div>
             ))}
           </div>
 
@@ -493,11 +601,11 @@ export default function LandingPage() {
               href="#"
               className="underline text-green-600 hover:text-blue-600"
             >
-              Contact Now!
+              Hubungi sekarang!
             </a>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
