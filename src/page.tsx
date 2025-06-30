@@ -130,9 +130,10 @@ export default function LandingPage() {
                 href="#home"
                 className="text-gray-700 hover:text-green-600 transition-colors"
                 onClick={() => {
-                  ReactGA.event("navigation_click", {
-                    menu: "Home",
-                    location: "desktop_header",
+                  ReactGA.event({
+                    category: "Navigation",
+                    action: "Click",
+                    label: "Home",
                   });
                 }}
               >
@@ -142,9 +143,10 @@ export default function LandingPage() {
                 href="#resume"
                 className="text-gray-700 hover:text-green-600 transition-colors"
                 onClick={() => {
-                  ReactGA.event("navigation_click", {
-                    menu: "Resume",
-                    location: "desktop_header",
+                  ReactGA.event({
+                    category: "Navigation",
+                    action: "Click",
+                    label: "Resume",
                   });
                 }}
               >
@@ -154,9 +156,10 @@ export default function LandingPage() {
                 href="#community"
                 className="text-gray-700 hover:text-green-600 transition-colors"
                 onClick={() => {
-                  ReactGA.event("navigation_click", {
-                    menu: "Community",
-                    location: "desktop_header",
+                  ReactGA.event({
+                    category: "Navigation",
+                    action: "Click",
+                    label: "Community",
                   });
                 }}
               >
@@ -166,9 +169,10 @@ export default function LandingPage() {
                 href="#blog"
                 className="text-gray-700 hover:text-green-600 transition-colors"
                 onClick={() => {
-                  ReactGA.event("navigation_click", {
-                    menu: "Blog",
-                    location: "desktop_header",
+                  ReactGA.event({
+                    category: "Navigation",
+                    action: "Click",
+                    label: "Blog",
                   });
                 }}
               >
@@ -178,9 +182,10 @@ export default function LandingPage() {
                 href="#pricing"
                 className="text-gray-700 hover:text-green-600 transition-colors"
                 onClick={() => {
-                  ReactGA.event("navigation_click", {
-                    menu: "Pricing",
-                    location: "desktop_header",
+                  ReactGA.event({
+                    category: "Navigation",
+                    action: "Click",
+                    label: "Pricing",
                   });
                 }}
               >
@@ -192,8 +197,10 @@ export default function LandingPage() {
               <Button
                 className="hidden md:block bg-green-600 hover:bg-green-700 text-white"
                 onClick={() => {
-                  ReactGA.event("hubungi_sekarang_click", {
-                    location: "desktop_header",
+                  ReactGA.event({
+                    category: "Header",
+                    action: "Click",
+                    label: "Hubungi sekarang (desktop)",
                   });
                 }}
               >
@@ -218,9 +225,10 @@ export default function LandingPage() {
                   href="#home"
                   className="text-gray-700 hover:text-green-600 transition-colors"
                   onClick={() => {
-                    ReactGA.event("navigation_click", {
-                      menu: "Home",
-                      location: "mobile_menu",
+                    ReactGA.event({
+                      category: "Navigation",
+                      action: "Click",
+                      label: "Home",
                     });
                   }}
                 >
@@ -230,9 +238,10 @@ export default function LandingPage() {
                   href="#resume"
                   className="text-gray-700 hover:text-green-600 transition-colors"
                   onClick={() => {
-                    ReactGA.event("navigation_click", {
-                      menu: "Resume",
-                      location: "mobile_menu",
+                    ReactGA.event({
+                      category: "Navigation",
+                      action: "Click",
+                      label: "Resume",
                     });
                   }}
                 >
@@ -242,9 +251,10 @@ export default function LandingPage() {
                   href="#community"
                   className="text-gray-700 hover:text-green-600 transition-colors"
                   onClick={() => {
-                    ReactGA.event("navigation_click", {
-                      menu: "Community",
-                      location: "mobile_menu",
+                    ReactGA.event({
+                      category: "Navigation",
+                      action: "Click",
+                      label: "Community",
                     });
                   }}
                 >
@@ -254,9 +264,10 @@ export default function LandingPage() {
                   href="#blog"
                   className="text-gray-700 hover:text-green-600 transition-colors"
                   onClick={() => {
-                    ReactGA.event("navigation_click", {
-                      menu: "Blog",
-                      location: "mobile_menu",
+                    ReactGA.event({
+                      category: "Navigation",
+                      action: "Click",
+                      label: "Blog",
                     });
                   }}
                 >
@@ -266,9 +277,10 @@ export default function LandingPage() {
                   href="#pricing"
                   className="text-gray-700 hover:text-green-600 transition-colors"
                   onClick={() => {
-                    ReactGA.event("navigation_click", {
-                      menu: "Pricing",
-                      location: "mobile_menu",
+                    ReactGA.event({
+                      category: "Navigation",
+                      action: "Click",
+                      label: "Pricing",
                     });
                   }}
                 >
@@ -277,8 +289,10 @@ export default function LandingPage() {
                 <Button
                   className="bg-green-600 hover:bg-green-700 text-white w-full"
                   onClick={() => {
-                    ReactGA.event("contact_now_click", {
-                      location: "mobile_menu",
+                    ReactGA.event({
+                      category: "Header",
+                      action: "Click",
+                      label: "Contact Now (mobile)",
                     });
                   }}
                 >
@@ -322,8 +336,10 @@ export default function LandingPage() {
               <Button
                 className="bg-green-600 hover:bg-green-700 text-white px-6 sm:px-8 py-2 sm:py-3 text-base sm:text-lg group"
                 onClick={() => {
-                  ReactGA.event("mulai_sekarang_click", {
-                    location: "hero_section",
+                  ReactGA.event({
+                    category: "Button",
+                    action: "Click",
+                    label: "Mulai Sekarang",
                   });
                 }}
               >
@@ -447,8 +463,10 @@ export default function LandingPage() {
                       <div
                         className="cursor-pointer hover:scale-110 transition-transform"
                         onClick={() => {
-                          ReactGA.event("tools_icon_click", {
-                            tool: tool.name,
+                          ReactGA.event({
+                            category: "Tools",
+                            action: "Click",
+                            label: tool.name,
                           });
                         }}
                       >
@@ -682,7 +700,11 @@ export default function LandingPage() {
                           : "bg-gray-900 hover:bg-gray-800"
                       } text-white`}
                       onClick={() => {
-                        ReactGA.event("choose_plan_click", { plan: plan.name });
+                        ReactGA.event({
+                          category: "Pricing",
+                          action: "Choose Plan",
+                          label: plan.name,
+                        });
                       }}
                     >
                       Choose Plan
@@ -701,8 +723,10 @@ export default function LandingPage() {
               href="#"
               className="underline text-green-600 hover:text-blue-600"
               onClick={() => {
-                ReactGA.event("hubungi_sekarang_click", {
-                  location: "pricing_section",
+                ReactGA.event({
+                  category: "Pricing",
+                  action: "Click",
+                  label: "Hubungi sekarang! (pricing section)",
                 });
               }}
             >
@@ -728,8 +752,10 @@ export default function LandingPage() {
                     key={social}
                     className="w-8 h-8 bg-gray-700 rounded hover:bg-gray-600 transition-colors cursor-pointer"
                     onClick={() => {
-                      ReactGA.event("social_media_icon_click", {
-                        icon: social,
+                      ReactGA.event({
+                        category: "Footer",
+                        action: "Click",
+                        label: `Social Media Icon ${social}`,
                       });
                     }}
                   >
