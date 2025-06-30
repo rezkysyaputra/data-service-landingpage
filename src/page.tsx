@@ -21,12 +21,21 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { motion } from "framer-motion";
+import ReactGA from "react-ga4";
 
 export default function LandingPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    const measurementId = process.env.REACT_APP_MEASUREMENT_ID;
+    if (measurementId) {
+      ReactGA.initialize(measurementId);
+      ReactGA.send({
+        hitType: "pageview",
+        page: window.location.pathname + window.location.search,
+      });
+    }
     setIsVisible(true);
   }, []);
 
@@ -120,37 +129,81 @@ export default function LandingPage() {
               <a
                 href="#home"
                 className="text-gray-700 hover:text-green-600 transition-colors"
+                onClick={() => {
+                  ReactGA.event({
+                    category: "Navigation",
+                    action: "Click",
+                    label: "Home",
+                  });
+                }}
               >
                 Home
               </a>
               <a
                 href="#resume"
                 className="text-gray-700 hover:text-green-600 transition-colors"
+                onClick={() => {
+                  ReactGA.event({
+                    category: "Navigation",
+                    action: "Click",
+                    label: "Resume",
+                  });
+                }}
               >
                 Resume
               </a>
               <a
                 href="#community"
                 className="text-gray-700 hover:text-green-600 transition-colors"
+                onClick={() => {
+                  ReactGA.event({
+                    category: "Navigation",
+                    action: "Click",
+                    label: "Community",
+                  });
+                }}
               >
                 Community
               </a>
               <a
                 href="#blog"
                 className="text-gray-700 hover:text-green-600 transition-colors"
+                onClick={() => {
+                  ReactGA.event({
+                    category: "Navigation",
+                    action: "Click",
+                    label: "Blog",
+                  });
+                }}
               >
                 Blog
               </a>
               <a
                 href="#pricing"
                 className="text-gray-700 hover:text-green-600 transition-colors"
+                onClick={() => {
+                  ReactGA.event({
+                    category: "Navigation",
+                    action: "Click",
+                    label: "Pricing",
+                  });
+                }}
               >
                 Pricing
               </a>
             </nav>
 
             <div className="flex items-center space-x-4">
-              <Button className="hidden md:block bg-green-600 hover:bg-green-700 text-white">
+              <Button
+                className="hidden md:block bg-green-600 hover:bg-green-700 text-white"
+                onClick={() => {
+                  ReactGA.event({
+                    category: "Header",
+                    action: "Click",
+                    label: "Hubungi sekarang (desktop)",
+                  });
+                }}
+              >
                 Hubungi sekarang
               </Button>
 
@@ -171,34 +224,78 @@ export default function LandingPage() {
                 <a
                   href="#home"
                   className="text-gray-700 hover:text-green-600 transition-colors"
+                  onClick={() => {
+                    ReactGA.event({
+                      category: "Navigation",
+                      action: "Click",
+                      label: "Home",
+                    });
+                  }}
                 >
                   Home
                 </a>
                 <a
                   href="#resume"
                   className="text-gray-700 hover:text-green-600 transition-colors"
+                  onClick={() => {
+                    ReactGA.event({
+                      category: "Navigation",
+                      action: "Click",
+                      label: "Resume",
+                    });
+                  }}
                 >
                   Resume
                 </a>
                 <a
                   href="#community"
                   className="text-gray-700 hover:text-green-600 transition-colors"
+                  onClick={() => {
+                    ReactGA.event({
+                      category: "Navigation",
+                      action: "Click",
+                      label: "Community",
+                    });
+                  }}
                 >
                   Community
                 </a>
                 <a
                   href="#blog"
                   className="text-gray-700 hover:text-green-600 transition-colors"
+                  onClick={() => {
+                    ReactGA.event({
+                      category: "Navigation",
+                      action: "Click",
+                      label: "Blog",
+                    });
+                  }}
                 >
                   Blog
                 </a>
                 <a
                   href="#pricing"
                   className="text-gray-700 hover:text-green-600 transition-colors"
+                  onClick={() => {
+                    ReactGA.event({
+                      category: "Navigation",
+                      action: "Click",
+                      label: "Pricing",
+                    });
+                  }}
                 >
                   Pricing
                 </a>
-                <Button className="bg-green-600 hover:bg-green-700 text-white w-full">
+                <Button
+                  className="bg-green-600 hover:bg-green-700 text-white w-full"
+                  onClick={() => {
+                    ReactGA.event({
+                      category: "Header",
+                      action: "Click",
+                      label: "Contact Now (mobile)",
+                    });
+                  }}
+                >
                   Contact Now
                 </Button>
               </nav>
@@ -236,7 +333,16 @@ export default function LandingPage() {
                 Analisis data, visualisasi, dan machine learning dengan data
                 scientist berpengalaman untuk mengoptimalkan bisnis Anda.
               </p>
-              <Button className="bg-green-600 hover:bg-green-700 text-white px-6 sm:px-8 py-2 sm:py-3 text-base sm:text-lg group">
+              <Button
+                className="bg-green-600 hover:bg-green-700 text-white px-6 sm:px-8 py-2 sm:py-3 text-base sm:text-lg group"
+                onClick={() => {
+                  ReactGA.event({
+                    category: "Button",
+                    action: "Click",
+                    label: "Mulai Sekarang",
+                  });
+                }}
+              >
                 Mulai Sekarang
                 <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
@@ -354,7 +460,16 @@ export default function LandingPage() {
                 >
                   <Tooltip>
                     <TooltipTrigger asChild>
-                      <div className="cursor-pointer hover:scale-110 transition-transform">
+                      <div
+                        className="cursor-pointer hover:scale-110 transition-transform"
+                        onClick={() => {
+                          ReactGA.event({
+                            category: "Tools",
+                            action: "Click",
+                            label: tool.name,
+                          });
+                        }}
+                      >
                         <img
                           src={`/static/images/${tool.icon}`}
                           alt={tool.name}
@@ -584,6 +699,13 @@ export default function LandingPage() {
                           ? "bg-green-600 hover:bg-green-700"
                           : "bg-gray-900 hover:bg-gray-800"
                       } text-white`}
+                      onClick={() => {
+                        ReactGA.event({
+                          category: "Pricing",
+                          action: "Choose Plan",
+                          label: plan.name,
+                        });
+                      }}
                     >
                       Choose Plan
                     </Button>
@@ -600,6 +722,13 @@ export default function LandingPage() {
             <a
               href="#"
               className="underline text-green-600 hover:text-blue-600"
+              onClick={() => {
+                ReactGA.event({
+                  category: "Pricing",
+                  action: "Click",
+                  label: "Hubungi sekarang! (pricing section)",
+                });
+              }}
             >
               Hubungi sekarang!
             </a>
@@ -622,6 +751,13 @@ export default function LandingPage() {
                   <div
                     key={social}
                     className="w-8 h-8 bg-gray-700 rounded hover:bg-gray-600 transition-colors cursor-pointer"
+                    onClick={() => {
+                      ReactGA.event({
+                        category: "Footer",
+                        action: "Click",
+                        label: `Social Media Icon ${social}`,
+                      });
+                    }}
                   >
                     <Star className="w-4 h-4 m-2" />
                   </div>
