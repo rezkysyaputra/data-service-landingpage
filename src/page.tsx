@@ -28,7 +28,7 @@ export default function LandingPage() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const measurementId = process.env.REACT_APP_MEASUREMENT_ID;
+    const measurementId = "G-QTCCTZ1ECP";
     if (measurementId) {
       ReactGA.initialize(measurementId);
       ReactGA.send({
