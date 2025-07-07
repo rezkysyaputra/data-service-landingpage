@@ -359,6 +359,7 @@ export default function LandingPage() {
                 scientist berpengalaman untuk mengoptimalkan bisnis Anda.
               </p>
               <Button
+                id="#pricing"
                 className="bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white font-bold px-8 py-3 text-lg rounded-full shadow-lg transition-all duration-200 group"
                 onClick={() => {
                   ReactGA.event("mulai_sekarang_click", {
