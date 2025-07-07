@@ -86,6 +86,7 @@ export default function LandingPage() {
     {
       name: "Basic",
       price: "$15",
+      link: "https://www.fiverr.com/rafz_i",
       features: [
         "2-day delivery",
         "Basic Data Cleaning",
@@ -98,6 +99,7 @@ export default function LandingPage() {
       name: "Standard",
       price: "$20",
       popular: true,
+      link: "https://www.fiverr.com/rafz_i",
       features: [
         "1-day delivery",
         "Standard Data Cleaning",
@@ -109,6 +111,7 @@ export default function LandingPage() {
     {
       name: "Premium",
       price: "$30",
+      link: "https://www.fiverr.com/rafz_i",
       features: [
         "1-day delivery",
         "Premium Data Cleaning",
@@ -211,14 +214,15 @@ export default function LandingPage() {
             </nav>
 
             <div className="flex items-center space-x-4">
-              <Button
+              <a
                 className="hidden md:block bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white font-semibold shadow-lg rounded-full px-6 py-2 transition-all duration-200"
                 onClick={() => {
                   ReactGA.event("header_contact_click", { device: "desktop" });
                 }}
+                href="https://www.fiverr.com/rafz_i"
               >
                 Hubungi sekarang
-              </Button>
+              </a>
 
               {/* Mobile menu button */}
               <button
@@ -412,11 +416,11 @@ export default function LandingPage() {
               Data Service: Platform Layanan Data Profesional
             </h2>
             <p className="text-lg text-gray-700 mb-6 font-medium">
-              Data Service adalah platform yang menyediakan layanan pencucian
-              dan visualisasi data. Kami membantu perusahaan dalam
-              mengoptimalkan data secara cepat dan efisien. Layanan ini
-              dirancang untuk membantu perusahaan meningkatkan berbagai aspek
-              dengan teknologi terdepan.
+              TriByte adalah platform yang menyediakan layanan pencucian dan
+              visualisasi data. Kami membantu perusahaan dalam mengoptimalkan
+              data secara cepat dan efisien. Layanan ini dirancang untuk
+              membantu perusahaan meningkatkan berbagai aspek dengan teknologi
+              terdepan.
             </p>
             <div className="flex flex-wrap gap-3 justify-center md:justify-start">
               <span className="inline-flex items-center bg-white shadow px-4 py-2 rounded-lg text-green-700 font-semibold text-sm">
@@ -669,15 +673,15 @@ export default function LandingPage() {
             {[
               {
                 title: "Using Excel For Cleaning Data",
-                img: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80",
+                img: "/static/images/excel_portfolio.png",
               },
               {
                 title: "Using Tableau For Visualization",
-                img: "https://images.unsplash.com/photo-1503676382389-4809596d5290?auto=format&fit=crop&w=400&q=80",
+                img: "/static/images/tableu.png",
               },
               {
                 title: "Using Google Colab For Cleaning Data",
-                img: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80",
+                img: "/static/images/cleaning_data.png",
               },
             ].map((project, index) => (
               <motion.div
@@ -697,9 +701,6 @@ export default function LandingPage() {
                   </div>
                   <CardContent className="p-6">
                     <div className="text-center">
-                      <div className="text-sm text-green-600 mb-2 font-bold">
-                        Order Now
-                      </div>
                       <h3 className="font-semibold text-gray-900">
                         {project.title}
                       </h3>
@@ -765,9 +766,12 @@ export default function LandingPage() {
                   }`}
                 >
                   {plan.popular && (
-                    <div className="absolute top-0 left-0 right-0 bg-green-600 text-white text-center py-2 text-sm font-semibold">
+                    <a
+                      href={plan.link}
+                      className="absolute top-0 left-0 right-0 bg-green-600 text-white text-center py-2 text-sm font-semibold"
+                    >
                       Most Popular
-                    </div>
+                    </a>
                   )}
                   <CardContent
                     className={`p-8 text-center ${plan.popular ? "pt-12" : ""}`}
@@ -789,12 +793,13 @@ export default function LandingPage() {
                         </li>
                       ))}
                     </ul>
-                    <Button
+                    <a
+                      href={plan.link}
                       className={`w-full ${
                         plan.popular
                           ? "bg-green-600 hover:bg-green-700"
                           : "bg-gray-900 hover:bg-gray-800"
-                      } text-white`}
+                      } text-white py-2 px-4 rounded-md`}
                       onClick={() => {
                         ReactGA.event("pricing_choose_plan", {
                           plan: plan.name,
@@ -803,7 +808,7 @@ export default function LandingPage() {
                       }}
                     >
                       Choose Plan
-                    </Button>
+                    </a>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -873,7 +878,7 @@ export default function LandingPage() {
               <Linkedin className="w-6 h-6 text-green-500" />
               <span className="font-semibold text-gray-700">LinkedIn:</span>
               <a
-                href="#"
+                href="https://www.linkedin.com/in/rahmatfauziabubakar/"
                 className="text-green-700 hover:text-blue-600 underline underline-offset-4 transition-colors font-medium"
                 onClick={() =>
                   ReactGA.event("contact_click", { type: "linkedin" })
