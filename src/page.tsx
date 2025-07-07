@@ -1038,6 +1038,15 @@ export default function LandingPage() {
                   +62 812-3456-7890
                 </a>
               </p>
+              <p className="text-gray-400 mb-2">
+                LinkedIn:{" "}
+                <a
+                  href="https://www.linkedin.com/in/rahmat-fauzi-a-aa9564333/"
+                  className="hover:text-white"
+                >
+                  Rahmat Fauzi Abu Bakar
+                </a>
+              </p>
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center">
